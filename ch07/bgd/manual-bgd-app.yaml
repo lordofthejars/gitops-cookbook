@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgd-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: bgd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/gitops-cookbook/gitops-cookbook-sc.git
+    path: ch07/bgd
+    targetRevision: main
